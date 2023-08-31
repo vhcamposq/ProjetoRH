@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'gentcult'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_94E50E80808840F2ACE48142EFA8F24F }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3C643485BD1B4F9A9C1E91E20F0C6156 }}
