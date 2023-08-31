@@ -1,0 +1,18 @@
+{% extends 'pages/templates/base.html' %}
+{% load static %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+    <h3>Bem vindo ao sistema</h3><br>
+    <h3>Você está:</h3>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% else %}
+        <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" onclick="showMessage()">Contratando</a>
+        <a href="{% url 'records-employee' %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Demitindo</a>
+    {% endif %}
+{% endblock %}
+

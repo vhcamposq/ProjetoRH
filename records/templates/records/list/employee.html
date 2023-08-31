@@ -1,0 +1,62 @@
+{% extends 'pages/templates/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Demitir
+{% endblock %}
+
+{% block content %}
+    {% block messages %}
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endblock %}
+
+    <h3>Lista de Demissões</h3> 
+    <a href="{% url 'records-employee' %}" class=" btn btn-primary">Adicionar a lista de demissões</a><br><br>
+
+    <div class="table-resposive">
+        <table class="table table-striped">
+            <tr>
+                <th>Usuário</th>
+                <th>Nome</th>
+                <th>Lider</th>
+                <th>E-mail do Líder</th>
+                <th>Cargo</th>
+                <th>Departamento</th>
+                <th>Empresa</th>
+                <th>Opções</th>
+            </tr>
+            {% for employee in object_list %}
+            <tr>
+                <td>{{ employee.usuario }}</td>
+                <td>{{ employee.nome }}</td>
+                <td>{{ employee.lider }}</td>
+                <td>{{ employee.lider_email }}</td>
+                <td>{{ employee.cargo }}</td>
+                <td>{{ employee.departamento }}</td>
+                <td>{{ employee.empresa }}</td>
+
+                <td>
+                    <a href="{% url 'delete-employee' employee.pk %}" class="link-icon">
+                        Excluir<i class="fas fa-trash"></i>
+                    </a>
+                    <a href="{% url 'demitir-employee' employee.pk %}" class="link-icon">
+                        Demitir<i class="fas fa-user-times"></i>
+                    </a>
+                </td>
+                              
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="8">Nenhum registro encontrado.</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

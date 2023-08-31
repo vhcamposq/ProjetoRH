@@ -1,0 +1,27 @@
+{% extends 'pages/templates/base.html' %}
+{% load static %}
+
+{% block title %}
+    Excluir da fila.
+{% endblock %}
+
+{% block content %}
+    
+        <h3>Excluir</h3>
+        <p class="lead">
+            Confirme para iniciar.
+        </p>
+        <hr>
+            <form action="" method="post">
+
+                <p>Deseja excluir <b>{{ object.nome }}</b> da fila de demissões?</p>
+
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <button type="submit" class="btn btn-danger">Excluir</button>
+            </form>
+        </hr>
+    
+{% endblock %}
